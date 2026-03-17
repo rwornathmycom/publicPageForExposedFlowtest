@@ -15,7 +15,7 @@
         const componentAttributes = {
             flowname: 'Case_SCREEN_Create_Case_from_Website'
         };
-        const endpoint = 'https://laska--laskaqa.sandbox.my.site.com';
+        const endpoint = 'https://laska--laskaqa.sandbox.my.site.com'.trim().replace(/\/+$/, '');
 
         $Lightning.use(
             appName,
