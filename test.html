@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salesforce Flow Embed Sample</title>
+    <script src="https://laska--laskaqa.sandbox.my.site.com/lightning/lightning.out.js"></script>
+</head>
+<body>
+    <div id="lightningLocator"></div>
+
+    <script>
+        const appName = 'c:EmbedFlowExternalWebsiteApp';
+        const componentName = 'c:EmbedFlowExternalWebsite';
+        const componentAttributes = {
+            flowname: 'Case_SCREEN_Create_Case_from_Website'
+        };
+
+        $Lightning.use(
+            appName,
+            function () {
+                $Lightning.createComponent(
+                    componentName,
+                    componentAttributes,
+                    'lightningLocator',
+                    function () {}
+                );
+            },
+            'https://laska--laskaqa.sandbox.my.site.com'
+        );
+    </script>
+</body>
+</html>
