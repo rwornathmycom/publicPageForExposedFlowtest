@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salesforce Flow Embed Sample</title>
-    <script src="https://laska--laskaqa.sandbox.my.site.com/lightning/lightning.out.js"></script>
-</head>
-<body>
-    <div id="lightningLocator"></div>
+ <html>
 
-    <script>
-        const appName = 'c:EmbedFlowExternalWebsiteApp';
-        const componentName = 'c:EmbedFlowExternalWebsite';
-        const componentAttributes = {
-            flowname: 'Case_SCREEN_Create_Case_from_Website'
-        };
-        const endpoint = 'https://laska--laskaqa.sandbox.my.site.com'.trim().replace(/\/+$/, '');
+  <script src="https://laska--laskaqa.sandbox.my.site.com/lightning/lightning.out.js"></script>
 
-        $Lightning.use(
-            appName,
-            function () {
-                $Lightning.createComponent(
-                    componentName,
-                    componentAttributes,
-                    'lightningLocator',
-                    function () {}
-                );
-            },
-            endpoint
-        );
-    </script>
-</body>
+  <div id="lightningLocator">
+
+  <script>
+    const appname = 'c:EmbedFlowExternalWebsiteApp';
+    const componentName = 'c:EmbedFlowExternalWebsite';
+    const componentAttributes = {
+      flowname: 'Case_SCREEN_Create_Case_from_Website' //Needs to be an Attribute within the Aura Component 'c:EmbedFlowExternalWebsite' LIKE <aura:attribute name="flowname" type="String" description="Flow Name"/>
+    }
+
+    $Lightning.use(
+      appname,
+      function () {
+        // Callback once framework and app loaded
+        $Lightning.createComponent(
+          componentName,
+          componentAttributes,
+          'lightningLocator',
+          function (cmp) {
+            console.log('Created??');
+          },);
+        },'https://laska--laskaqa.sandbox.my.site.com/');
+  </script>
 </html>
